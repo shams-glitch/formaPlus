@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GCentreFormation</class>
+ <widget class="QMainWindow" name="GCentreFormation">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>860</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GCentreFormation — FormaPlus</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="layoutRacine">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="sidebar" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>230</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>230</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="layoutSidebar">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="leftMargin">
+        <number>16</number>
+       </property>
+       <property name="topMargin">
+        <number>24</number>
+       </property>
+       <property name="rightMargin">
+        <number>16</number>
+       </property>
+       <property name="bottomMargin">
+        <number>24</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="lblLogo">
+         <property name="text">
+          <string>FormaPlus</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblSousTitre">
+         <property name="text">
+          <string>Centre de formation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="spacerNavTop">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>16</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavAccueil">
+         <property name="text">
+          <string>Accueil</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavFormateurs">
+         <property name="text">
+          <string>Formateurs</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnNavCours">
+         <property name="text">
+          <string>Cours</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="spacerNav">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblModules">
+         <property name="text">
+          <string>2 modules · Oracle · Qt</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedPages">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pageAccueil">
+       <layout class="QVBoxLayout" name="layoutAccueil">
+        <property name="leftMargin">
+         <number>24</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>24</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblTitreAccueil">
+          <property name="text">
+           <string>Tableau de bord</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblIntroAccueil">
+          <property name="text">
+           <string>Pilotage du centre : formateurs, cours, charge et alertes.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layoutKpi">
+          <item>
+           <widget class="QFrame" name="kpiFormateurs">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="layoutKpi1">
+             <item>
+              <widget class="QLabel" name="lblKpiFormateursValeur">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblKpiFormateurs">
+               <property name="text">
+                <string>Formateurs actifs</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="kpiCours">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="layoutKpi2">
+             <item>
+              <widget class="QLabel" name="lblKpiCoursValeur">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblKpiCours">
+               <property name="text">
+                <string>Cours au catalogue</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="kpiPlanifies">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="layoutKpi3">
+             <item>
+              <widget class="QLabel" name="lblKpiPlanifiesValeur">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblKpiPlanifies">
+               <property name="text">
+                <string>Cours planifiés</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="kpiHeures">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <layout class="QVBoxLayout" name="layoutKpi4">
+             <item>
+              <widget class="QLabel" name="lblKpiHeuresValeur">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblKpiHeures">
+               <property name="text">
+                <string>Heures pédagogiques</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layoutChartsAccueil">
+          <item>
+           <widget class="QWidget" name="widgetChartAccueilSpec" native="true">
+            <layout class="QVBoxLayout" name="layoutChartAccueilSpec"/>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="widgetChartAccueilNiveau" native="true">
+            <layout class="QVBoxLayout" name="layoutChartAccueilNiveau"/>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageFormateurs">
+       <layout class="QVBoxLayout" name="layoutPageForm">
+        <property name="leftMargin">
+         <number>16</number>
+        </property>
+        <property name="topMargin">
+         <number>12</number>
+        </property>
+        <property name="rightMargin">
+         <number>16</number>
+        </property>
+        <property name="bottomMargin">
+         <number>12</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblTitreFormateurs">
+          <property name="text">
+           <string>Gestion des formateurs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabFormateurs">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabFormListe">
+           <attribute name="title">
+            <string>Liste &amp;&amp; CRUD</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="layoutFormCrud">
+            <item>
+             <widget class="QFrame" name="frameFormSaisie">
+              <property name="maximumSize">
+               <size>
+                <width>360</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <layout class="QFormLayout" name="formFormateur">
+               <item row="0" column="0">
+                <widget class="QLabel" name="lblFormId">
+                 <property name="text">
+                  <string>ID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="leFormId">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Automatique</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="lblFormCin">
+                 <property name="text">
+                  <string>CIN</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="leFormCin">
+                 <property name="maxLength">
+                  <number>8</number>
+                 </property>
+                 <property name="placeholderText">
+                  <string>8 chiffres</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="lblFormNom">
+                 <property name="text">
+                  <string>Nom</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="leFormNom"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="lblFormPrenom">
+                 <property name="text">
+                  <string>Prénom</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="leFormPrenom"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="lblFormEmail">
+                 <property name="text">
+                  <string>E-mail</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="leFormEmail"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="lblFormTel">
+                 <property name="text">
+                  <string>Téléphone</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="leFormTel">
+                 <property name="maxLength">
+                  <number>8</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="lblFormSpec">
+                 <property name="text">
+                  <string>Spécialité</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="cbFormSpecialite">
+                 <property name="editable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="lblFormDate">
+                 <property name="text">
+                  <string>Embauche</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QDateEdit" name="deFormEmbauche">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="lblFormStatut">
+                 <property name="text">
+                  <string>Statut</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QComboBox" name="cbFormStatut"/>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <layout class="QGridLayout" name="gridFormBtns">
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="btnFormAjouter">
+                   <property name="text">
+                    <string>Ajouter</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QPushButton" name="btnFormModifier">
+                   <property name="text">
+                    <string>Modifier</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QPushButton" name="btnFormSupprimer">
+                   <property name="text">
+                    <string>Supprimer</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QPushButton" name="btnFormVider">
+                   <property name="text">
+                    <string>Vider</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QPushButton" name="btnFormActualiser">
+                   <property name="text">
+                    <string>Actualiser</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QPushButton" name="btnFormPdf">
+                   <property name="text">
+                    <string>Fiche PDF</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableFormateurs">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabFormRecherche">
+           <attribute name="title">
+            <string>Recherche &amp;&amp; tri</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutFormRech">
+            <item>
+             <layout class="QHBoxLayout" name="layoutFormFiltres">
+              <item>
+               <widget class="QLabel" name="lblFormRechNom">
+                <property name="text">
+                 <string>Nom</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="leFormRechNom"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblFormRechSpec">
+                <property name="text">
+                 <string>Spécialité</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormRechSpec"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblFormRechStatut">
+                <property name="text">
+                 <string>Statut</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormRechStatut"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnFormRechercher">
+                <property name="text">
+                 <string>Rechercher</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="layoutFormTri">
+              <item>
+               <widget class="QLabel" name="lblFormTri">
+                <property name="text">
+                 <string>Trier par</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriCritere"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriOrdre"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblFormTri2">
+                <property name="text">
+                 <string>puis</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriCritere2"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriOrdre2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblFormTri3">
+                <property name="text">
+                 <string>puis</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriCritere3"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbFormTriOrdre3"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnFormTrier">
+                <property name="text">
+                 <string>Trier</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnFormPdfListe">
+                <property name="text">
+                 <string>Exporter la liste PDF</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="spacerFormTri">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableFormRecherche">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabFormStats">
+           <attribute name="title">
+            <string>Statistiques</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutFormStats">
+            <item>
+             <widget class="QLabel" name="lblFormStatsResume">
+              <property name="text">
+               <string>Graphiques mis à jour après chaque modification.</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="layoutFormCharts">
+              <item>
+               <widget class="QWidget" name="widgetChartFormSpec" native="true">
+                <layout class="QVBoxLayout" name="layoutChartFormSpec"/>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetChartFormStatut" native="true">
+                <layout class="QVBoxLayout" name="layoutChartFormStatut"/>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabFormMetiers">
+           <attribute name="title">
+            <string>Charge &amp;&amp; conflits</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutFormMetiers">
+            <item>
+             <widget class="QPushButton" name="btnFormRefreshMetiers">
+              <property name="text">
+               <string>Actualiser charge et conflits</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblFormCharge">
+              <property name="text">
+               <string>Charge pédagogique (cours non annulés)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableFormCharge">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblFormConflits">
+              <property name="text">
+               <string>Conflits de planning (même formateur, dates qui se chevauchent)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableFormConflits">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageCours">
+       <layout class="QVBoxLayout" name="layoutPageCours">
+        <property name="leftMargin">
+         <number>16</number>
+        </property>
+        <property name="topMargin">
+         <number>12</number>
+        </property>
+        <property name="rightMargin">
+         <number>16</number>
+        </property>
+        <property name="bottomMargin">
+         <number>12</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="lblTitreCours">
+          <property name="text">
+           <string>Gestion des cours</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabCours">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabCoursListe">
+           <attribute name="title">
+            <string>Liste &amp;&amp; CRUD</string>
+           </attribute>
+           <layout class="QHBoxLayout" name="layoutCoursCrud">
+            <item>
+             <widget class="QFrame" name="frameCoursSaisie">
+              <property name="maximumSize">
+               <size>
+                <width>380</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <layout class="QFormLayout" name="formCours">
+               <item row="0" column="0">
+                <widget class="QLabel" name="lblCoursId">
+                 <property name="text">
+                  <string>ID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="leCoursId">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Automatique</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="lblCoursTitre">
+                 <property name="text">
+                  <string>Titre</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="leCoursTitre"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="lblCoursNiveau">
+                 <property name="text">
+                  <string>Niveau</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="cbCoursNiveau"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="lblCoursDuree">
+                 <property name="text">
+                  <string>Durée (h)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="sbCoursDuree">
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>400</number>
+                 </property>
+                 <property name="value">
+                  <number>20</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="lblCoursPrix">
+                 <property name="text">
+                  <string>Prix (DT)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QDoubleSpinBox" name="dsCoursPrix">
+                 <property name="decimals">
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>99999.990000000005</double>
+                 </property>
+                 <property name="value">
+                  <double>300.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="lblCoursDebut">
+                 <property name="text">
+                  <string>Début</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QDateEdit" name="deCoursDebut">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="lblCoursFin">
+                 <property name="text">
+                  <string>Fin</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QDateEdit" name="deCoursFin">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MM/yyyy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="lblCoursStatut">
+                 <property name="text">
+                  <string>Statut</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="cbCoursStatut"/>
+               </item>
+               <item row="8" column="0">
+                <widget class="QLabel" name="lblCoursFormateur">
+                 <property name="text">
+                  <string>Formateur</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QComboBox" name="cbCoursFormateur"/>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <layout class="QGridLayout" name="gridCoursBtns">
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="btnCoursAjouter">
+                   <property name="text">
+                    <string>Ajouter</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QPushButton" name="btnCoursModifier">
+                   <property name="text">
+                    <string>Modifier</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QPushButton" name="btnCoursSupprimer">
+                   <property name="text">
+                    <string>Supprimer</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QPushButton" name="btnCoursVider">
+                   <property name="text">
+                    <string>Vider</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QPushButton" name="btnCoursActualiser">
+                   <property name="text">
+                    <string>Actualiser</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QPushButton" name="btnCoursPdf">
+                   <property name="text">
+                    <string>Fiche PDF</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QPushButton" name="btnCoursCatalogue">
+                   <property name="text">
+                    <string>Catalogue PDF</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableCours">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabCoursRecherche">
+           <attribute name="title">
+            <string>Recherche &amp;&amp; tri</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutCoursRech">
+            <item>
+             <layout class="QHBoxLayout" name="layoutCoursFiltres">
+              <item>
+               <widget class="QLabel" name="lblCoursRechTitre">
+                <property name="text">
+                 <string>Titre</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="leCoursRechTitre"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblCoursRechNiveau">
+                <property name="text">
+                 <string>Niveau</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursRechNiveau"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblCoursRechStatut">
+                <property name="text">
+                 <string>Statut</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursRechStatut"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblCoursRechForm">
+                <property name="text">
+                 <string>Formateur</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursRechFormateur"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCoursRechercher">
+                <property name="text">
+                 <string>Rechercher</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="layoutCoursTri">
+              <item>
+               <widget class="QLabel" name="lblCoursTri">
+                <property name="text">
+                 <string>Trier par</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriCritere"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriOrdre"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblCoursTri2">
+                <property name="text">
+                 <string>puis</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriCritere2"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriOrdre2"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblCoursTri3">
+                <property name="text">
+                 <string>puis</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriCritere3"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbCoursTriOrdre3"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCoursTrier">
+                <property name="text">
+                 <string>Trier</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="spacerCoursTri">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableCoursRecherche">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabCoursStats">
+           <attribute name="title">
+            <string>Statistiques</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutCoursStats">
+            <item>
+             <widget class="QLabel" name="lblCoursStatsResume">
+              <property name="text">
+               <string>Répartition des cours — mise à jour automatique.</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="layoutCoursCharts">
+              <item>
+               <widget class="QWidget" name="widgetChartCoursNiveau" native="true">
+                <layout class="QVBoxLayout" name="layoutChartCoursNiveau"/>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetChartCoursFormateur" native="true">
+                <layout class="QVBoxLayout" name="layoutChartCoursFormateur"/>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="widgetChartCoursMois" native="true">
+                <layout class="QVBoxLayout" name="layoutChartCoursMois"/>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tabCoursMetiers">
+           <attribute name="title">
+            <string>Affectation &amp;&amp; alertes</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="layoutCoursMetiers">
+            <item>
+             <layout class="QHBoxLayout" name="layoutAffectation">
+              <item>
+               <widget class="QLabel" name="lblAffCours">
+                <property name="text">
+                 <string>Cours</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbAffCours"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblAffForm">
+                <property name="text">
+                 <string>Nouveau formateur</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cbAffFormateur"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCoursAffecter">
+                <property name="text">
+                 <string>Affecter</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCoursRefreshAlertes">
+                <property name="text">
+                 <string>Actualiser les alertes</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblCoursAlertes">
+              <property name="text">
+               <string>Alertes : démarrage imminent, formateur inactif, chevauchement</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableView" name="tableCoursAlertes">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
