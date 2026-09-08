@@ -52,7 +52,7 @@ Generated: 2026-09-07
 | Database connection | **PASS** | ODBC query `SELECT COUNT(*) FROM FORMATEUR` → **8** |
 | Schema load | **PASS** | `mpd_oracle.sql` applied; FORMATEUR=8, COURS=12 |
 | Arduino | **N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT** | No QSerialPort in this project |
-| Git | **PASS** | Identity configured ; remote formaPlus ; finalization commit on `main` |
+| Git | **PASS** | Identity configured ; remote formaPlus ; `main` synchronized |
 
 \* OneDrive path is **blocked by Device Guard**. Deployed runnable copy to `C:\Dev\GCentreFormation\`.
 
@@ -78,7 +78,8 @@ Open a **new** terminal for PATH to apply everywhere.
 1. **Rotate** the Oracle application-user password (public commit `fbaacb0` contained hardcoded credentials). Do not rewrite Git history.
 2. **Launch** — `C:\Dev\GCentreFormation\GCentreFormation.exe` or Qt Creator (not PowerShell if Smart App Control blocks).
 3. **Arduino** — N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT.
-4. **Cahier Word** — optional TOC + GUI screenshots.
+4. **Cahier Word** — optional TOC + GUI screenshots (MANUAL ACTION in Word).
+5. **Présentation** — `docs/GCentreFormation_Presentation_Septembre_2026.pptx` (10 slides).
 
 ## === RUNNING NOW ===
 

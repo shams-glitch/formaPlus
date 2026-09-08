@@ -106,7 +106,8 @@ Dépôt `https://github.com/shams-glitch/formaPlus.git`, branche `main`. AA3.2 A
 
 ## 25. Pourquoi Arduino n’est-il pas présent ?
 
-Arduino ne fait pas partie des exigences du sujet officiel de repassage de septembre 2026. Nous nous sommes donc concentrés sur les fonctionnalités demandées par le sujet.
+Arduino ne fait pas partie des exigences du sujet officiel de
+repassage de septembre 2026. Nous nous sommes donc concentrés sur les fonctionnalités demandées par le sujet.
 
 ---
 

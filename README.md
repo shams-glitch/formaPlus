@@ -30,7 +30,7 @@ Modules : **Formateurs** et **Cours**. SGBD : **Oracle**. Patron : **singleton**
 | `src/` | C++ : `main`, `connection` (singleton), `formateur`, `cours`, `gcentreformation` |
 | `ui/` | `gcentreformation.ui` (1 seul fichier UI) |
 | `sql/` | `mpd_oracle.sql` |
-| `docs/` | Conception, grille, guide, cahier Word |
+| `docs/` | Conception, grille, guide, cahier Word, présentation jury |
 | `GCentreFormation.pro` | Projet qmake |
 
 ## Architecture (atelier CRUD)
@@ -60,4 +60,7 @@ Aucune requête SQL n’est écrite derrière un bouton.
 ## Git
 
 Remote : `https://github.com/shams-glitch/formaPlus.git`  
-Fiche orale : `docs/JURY_CHEAT_SHEET.md` · checklist : `docs/VALIDATION_CHECKLIST.md`
+Fiche orale : `docs/JURY_CHEAT_SHEET.md` · checklist : `docs/VALIDATION_CHECKLIST.md`  
+Présentation : `docs/GCentreFormation_Presentation_Septembre_2026.pptx`
+
+Arduino / marketing / teamwork : **N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT**.

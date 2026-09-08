@@ -7,7 +7,7 @@ Preuves concrètes pour chaque acquis. À utiliser à l’oral (AA7.1).
 | **AA2.1 MCD** | Associations, cardinalités, propriétés + PK | `docs/conception.md` §1 — enseigne (0,N)–(1,1), PK formateur/cours | OK |
 | **AA2.2 MLD** | Relations + intégrité depuis MCD | `docs/conception.md` §2 — FK `#id_formateur`, UNIQUE, domaines | OK |
 | **AA2.3 MPD** | Script Oracle cohérent | `sql/mpd_oracle.sql` — PK/FK/CHECK/séquences/triggers/index | OK |
-| **AA3.2 Git** | commit + **push** + **pull** | `origin` = `https://github.com/shams-glitch/formaPlus.git` ; `main` ; identité `shamsedine tayeb` | Commit de finalisation + push (sans `--force`) |
+| **AA3.2 Git** | commit + **push** + **pull** | `origin` = `https://github.com/shams-glitch/formaPlus.git` ; `main` ; identité `shamsedine tayeb` | OK (sans `--force`) |
 | **AA4.1 CRUD** | 4 ops + contrôles + cohérence | `formateur.cpp` / `cours.cpp` + `valider()` + CHECK Oracle | OK |
 | **AA4.2 Métiers** | 5 métiers / module + contrôles | Voir tableau métiers ci-dessous | OK |
 | **AA4.3 GUI** | Ergonomique, navigation fluide | 1 `.ui`, sidebar + Stacked + Tabs, peu de dialogs | OK |

@@ -24,10 +24,11 @@ Arduino / marketing / teamwork : **N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJEC
 | Requêtes préparées | prepare/bindValue | revue source | PASS | pas de SQL dans les slots | — |
 | Validation saisie | `valider()` | GUI CIN | PASS | 8 chiffres | — |
 | MCD/MLD/MPD | `conception.md` | relecture | PASS | (0,N)–(1,1) | — |
-| Git | identity + commit + push + pull | `main` / formaPlus | PASS | commit de finalisation | — |
+| Git | identity + commit + push + pull | `main` / formaPlus | PASS | `4b4c0da` + commit présentation | — |
+| Présentation jury | 10 slides PPTX/PDF | fichier + captures réelles | PASS | `docs/GCentreFormation_Presentation_Septembre_2026.pptx` | — |
 | Arduino | — | — | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT | énoncé | — |
 | Marketing | — | — | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT | énoncé | — |
 | Teamwork | — | — | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT | énoncé | — |
-| Cahier Word | script | fichier présent | PARTIAL | `.docx` généré | TOC + captures manuelles |
+| Cahier Word | script | fichier présent | PARTIAL | `.docx` présent | TOC + captures manuelles |
 
 **Sécurité :** le source actuel n’a plus de mot de passe en dur. L’ancien commit public `fbaacb0` en contenait un. Rotater le mot de passe Oracle applicatif. Ne pas réécrire l’historique Git.
