@@ -454,19 +454,29 @@ QString Cours::htmlPied() const
 bool Cours::ecrirePdf(const QString& html, const QString& chemin)
 {
     QPdfWriter writer(chemin);
+    writer.setResolution(96);
     writer.setPageSize(QPageSize(QPageSize::A4));
+    writer.setPageOrientation(QPageLayout::Portrait);
     writer.setPageMargins(QMarginsF(15, 15, 15, 15), QPageLayout::Millimeter);
     writer.setTitle(QString::fromUtf8("FormaPlus — Cours"));
 
+    const QString htmlPage = QString::fromUtf8(
+        "<html><head><meta charset='utf-8'/>"
+        "<style>"
+        "body { font-family: Arial, sans-serif; font-size: 11pt; color: #222; }"
+        "h1 { font-size: 18pt; margin: 0; }"
+        "h2 { font-size: 14pt; color: #0F2744; }"
+        "h3 { font-size: 12pt; color: #0F2744; }"
+        "table { width: 100%; border-collapse: collapse; }"
+        "th, td { padding: 6px; }"
+        "</style></head><body>%1</body></html>").arg(html);
+
     QTextDocument doc;
-    doc.setHtml(html);
-    doc.setPageSize(QSizeF(writer.width(), writer.height()));
-    QPainter painter(&writer);
-    if (!painter.isActive()) {
-        lastError = QString::fromUtf8("Impossible d'écrire le fichier PDF.");
-        return false;
-    }
-    doc.drawContents(&painter);
+    doc.setDocumentMargin(0);
+    const QSizeF page = writer.pageLayout().paintRectPixels(writer.resolution()).size();
+    doc.setPageSize(page);
+    doc.setHtml(htmlPage);
+    doc.print(&writer);
     lastError.clear();
     return true;
 }
