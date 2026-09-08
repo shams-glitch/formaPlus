@@ -1,0 +1,5 @@
+[oracle]
+dsn=Source_Projet2A
+driver=Oracle in XE
+user=
+password=

@@ -39,8 +39,8 @@ Generated: 2026-09-07
 | Qt modules | `core gui widgets sql charts printsupport` |
 | C++ standard | C++17 |
 | Database | **Oracle** (subject requirement) via **QODBC** |
-| Connection | Singleton `Connection` → DSN `Source_Projet2A`, user `cpp` / `cpp` |
-| Arduino in this repo | Not part of `GCentreFormation` sources; ateliers copied to `docs\arduino_ateliers\` |
+| Connection | Singleton `Connection` → DSN `Source_Projet2A` (credentials via env or `connection.ini`, never in source) |
+| Arduino in this repo | **Not required** by Sujet_repassage_Septembre_2026.pdf ; no QSerialPort, no board/COM |
 | Main deps | Qt Charts, Qt SQL ODBC, Oracle XE |
 
 ## === TESTS ===
@@ -51,19 +51,18 @@ Generated: 2026-09-07
 | Qt application | **PASS*** | Runs from `C:\Dev\GCentreFormation\` |
 | Database connection | **PASS** | ODBC query `SELECT COUNT(*) FROM FORMATEUR` → **8** |
 | Schema load | **PASS** | `mpd_oracle.sql` applied; FORMATEUR=8, COURS=12 |
-| Arduino detection | **NOT TESTED** | No COM / serial ports; no board connected |
-| Git | **PARTIAL** | Repo OK (5 commits); identity + remote missing |
+| Arduino | **N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT** | No QSerialPort in this project |
+| Git | **PASS** | Identity configured ; remote formaPlus ; finalization commit on `main` |
 
 \* OneDrive path is **blocked by Device Guard**. Deployed runnable copy to `C:\Dev\GCentreFormation\`.
 
-## === CREDENTIALS / CONFIG (local) ===
+## === CONFIG (no secrets in Git) ===
 
 | Item | Value |
 |------|--------|
-| Oracle SYSTEM password | `oraclexe` (from XE response file) |
-| App schema | user `cpp` / password `cpp` |
 | DSN | `Source_Projet2A` |
 | Listener | localhost:1521, service **XE** |
+| App credentials | Set `ORACLE_USER` / `ORACLE_PASSWORD`, or `connection.ini` beside the exe (gitignored) |
 
 ## === PATH (User) UPDATED ===
 
@@ -76,24 +75,14 @@ Open a **new** terminal for PATH to apply everywhere.
 
 ## === REMAINING ACTIONS (manual) ===
 
-1. **Git identity** (do not invent — set your real data):
-   ```powershell
-   git config --global user.name "YOUR_NAME"
-   git config --global user.email "YOUR_EMAIL"
-   ```
-2. **GitHub Classroom** — add remote and `git push` / `git pull` (needed for AA3.2 grade A).
-3. **Qt Creator kit** — first open: Preferences → Kits → ensure Desktop Qt 6.8.3 MinGW 64-bit uses:
-   - Qt: `C:\Qt\6.8.3\mingw_64`
-   - Compiler: MinGW `C:\Qt\Tools\mingw1310_64\bin`
-   - Then open `GCentreFormation.pro`
-4. **Device Guard** — run the app from `C:\Dev\GCentreFormation\GCentreFormation.exe` or via Qt Creator; OneDrive `release\` may stay blocked.
-5. **Arduino hardware** — plug the board, check Device Manager → Ports (COM), then open ateliers in `docs\arduino_ateliers\`.
-6. **Cahier Word** — add auto TOC + GUI screenshots before soutenance.
+1. **Rotate** the Oracle application-user password (public commit `fbaacb0` contained hardcoded credentials). Do not rewrite Git history.
+2. **Launch** — `C:\Dev\GCentreFormation\GCentreFormation.exe` or Qt Creator (not PowerShell if Smart App Control blocks).
+3. **Arduino** — N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT.
+4. **Cahier Word** — optional TOC + GUI screenshots.
 
 ## === RUNNING NOW ===
 
-- GCentreFormation (from `C:\Dev\...`)
+- GCentreFormation (from `C:\Dev\GCentreFormation\`)
 - Qt Creator
 - SQL Developer
-- Arduino IDE
 - Oracle XE services

@@ -11,25 +11,11 @@ Modules : **Formateurs** et **Cours**. SGBD : **Oracle**. Patron : **singleton**
 
 ## Base de données
 
-1. Créer un utilisateur Oracle, par exemple :
+1. Créer un utilisateur Oracle (atelier), puis **ne pas** relancer `sql/mpd_oracle.sql` si les tables existent déjà (le script DROP).
 
-```sql
-CREATE USER cpp IDENTIFIED BY cpp;
-GRANT CONNECT, RESOURCE TO cpp;
-ALTER USER cpp QUOTA UNLIMITED ON USERS;
-```
+2. Source ODBC 64 bits nommée exactement **`Source_Projet2A`**.
 
-2. Dans SQL Developer, exécuter `sql/mpd_oracle.sql` (tables, contraintes, séquences, jeu d’essai).
-
-3. Adapter `connection.cpp` si besoin :
-
-```cpp
-db.setDatabaseName("Source_Projet2A");
-db.setUserName("cpp");
-db.setPassword("cpp");
-```
-
-4. Créer la source ODBC 64 bits : *Sources de données ODBC* → Oracle → nom exact `Source_Projet2A`.
+3. Identifiants **hors du code** : variables `ORACLE_DSN` / `ORACLE_USER` / `ORACLE_PASSWORD`, ou fichier `connection.ini` à côté de l’exe (voir `connection.ini.example`, **gitignored**).
 
 ## Lancer le projet
 
@@ -73,14 +59,5 @@ Aucune requête SQL n’est écrite derrière un bouton.
 
 ## Git
 
-```bash
-cd GCentreFormation
-git init
-git add .
-git commit -m "Version initiale GCentreFormation — Formateurs et Cours"
-git branch -M main
-git remote add origin <URL-GitHub>
-git push -u origin main
-```
-
-Faire des commits réguliers (CRUD, métiers, GUI) pour valider AA3.2.
+Remote : `https://github.com/shams-glitch/formaPlus.git`  
+Fiche orale : `docs/JURY_CHEAT_SHEET.md` · checklist : `docs/VALIDATION_CHECKLIST.md`

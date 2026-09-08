@@ -54,9 +54,13 @@ Formateurs : charge pédagogique / conflits. Cours : affectation / alertes (déb
 ## Git (AA3.2)
 
 **Q : Montrez l’historique.**  
-`git log --oneline` : connexion/MPD → modèles → GUI/métiers → alignement grille.
+`git log --oneline --decorate` sur `main` / `origin/main`. Remote : `https://github.com/shams-glitch/formaPlus.git`.  
+Ne pas inventer de commits.
 
-**Pour A** : montrer aussi `git remote -v`, un **push** et un **pull** sur GitHub Classroom.
+**Pour A** : montrer `git remote -v`, que `main` est déjà poussé, puis `git pull --ff-only origin main`.
+
+**Q : Arduino / marketing / teamwork ?**  
+N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT. Pas de `QSerialPort` dans ce projet.
 
 ---
 

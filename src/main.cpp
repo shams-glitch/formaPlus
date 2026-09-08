@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
                                   "Vérifiez :\n"
                                   "1. Oracle XE est démarré\n"
                                   "2. La source ODBC s'appelle Source_Projet2A\n"
-                                  "3. L'utilisateur / mot de passe dans connection.cpp\n"
+                                  "3. Variables ORACLE_USER / ORACLE_PASSWORD, ou connection.ini à côté de l'exe\n"
                                   "4. Le script sql/mpd_oracle.sql a été exécuté"));
     }
     w.show();

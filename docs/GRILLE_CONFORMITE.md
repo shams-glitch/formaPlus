@@ -7,11 +7,11 @@ Preuves concrètes pour chaque acquis. À utiliser à l’oral (AA7.1).
 | **AA2.1 MCD** | Associations, cardinalités, propriétés + PK | `docs/conception.md` §1 — enseigne (0,N)–(1,1), PK formateur/cours | OK |
 | **AA2.2 MLD** | Relations + intégrité depuis MCD | `docs/conception.md` §2 — FK `#id_formateur`, UNIQUE, domaines | OK |
 | **AA2.3 MPD** | Script Oracle cohérent | `sql/mpd_oracle.sql` — PK/FK/CHECK/séquences/triggers/index | OK |
-| **AA3.2 Git** | commit + **push** + **pull** réguliers | 4 commits locaux (`git log`) | **À finaliser** : push GitHub |
+| **AA3.2 Git** | commit + **push** + **pull** | `origin` = `https://github.com/shams-glitch/formaPlus.git` ; `main` ; identité `shamsedine tayeb` | Commit de finalisation + push (sans `--force`) |
 | **AA4.1 CRUD** | 4 ops + contrôles + cohérence | `formateur.cpp` / `cours.cpp` + `valider()` + CHECK Oracle | OK |
 | **AA4.2 Métiers** | 5 métiers / module + contrôles | Voir tableau métiers ci-dessous | OK |
 | **AA4.3 GUI** | Ergonomique, navigation fluide | 1 `.ui`, sidebar + Stacked + Tabs, peu de dialogs | OK |
-| **AA7.1 Oral** | Réponses précises | `docs/guide_soutenance.md` | À répéter |
+| **AA7.1 Oral** | Réponses précises | `docs/JURY_CHEAT_SHEET.md` + `docs/guide_soutenance.md` | À répéter |
 
 ---
 
@@ -21,7 +21,7 @@ Preuves concrètes pour chaque acquis. À utiliser à l’oral (AA7.1).
 |----------|-------------|-----|
 | 2 modules | Oui | Formateurs + Cours |
 | CRUD × 2 | Oui | Onglets « Liste & CRUD » |
-| Git + GitHub | Partiel | Commits OK — **push GitHub manquant** |
+| Git + GitHub | Oui | Remote formaPlus, branche `main`. Commit de finalisation septembre 2026 (après `fbaacb0`). |
 | Recherche + tri ≥ 3 critères / module | Oui | Formateurs : nom, spécialité, statut ; Cours : titre, niveau, statut (+ formateur) ; tri jusqu’à 3 colonnes |
 | Stats + graphiques live | Oui | Qt Charts ; `chargerTout()` après chaque CRUD |
 | 1 seul type de document | Oui | PDF uniquement |
@@ -56,9 +56,17 @@ Preuves concrètes pour chaque acquis. À utiliser à l’oral (AA7.1).
 
 ---
 
-## Ce qui reste avant la soutenance (critique)
+## Hors sujet (ne pas présenter comme exigence)
 
-1. **Créer le dépôt GitHub** et pousser (`push`) — sans ça AA3.2 ≠ A.  
-2. Exécuter `sql/mpd_oracle.sql` + DSN ODBC `Source_Projet2A`.  
-3. Compléter le Word `docs/Cahier_Specification_GCentreFormation.docx` : table des matières auto + captures GUI.  
-4. Répéter l’oral avec `docs/guide_soutenance.md`.
+| Thème | Statut |
+|-------|--------|
+| Arduino / QSerialPort / port COM | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT |
+| Marketing | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT |
+| Teamwork / travail en équipe | N/A — NOT REQUIRED BY SEPTEMBER 2026 SUBJECT |
+
+## Ce qui reste avant la soutenance
+
+1. **Ne pas** relancer `sql/mpd_oracle.sql` (DROP des tables).  
+2. Cahier Word : TOC + captures GUI optionnelles.  
+3. Répéter l’oral avec `docs/JURY_CHEAT_SHEET.md`.  
+4. Rotater le mot de passe Oracle de l’utilisateur applicatif (ancien commit public `fbaacb0`). Ne pas réécrire l’historique Git.

@@ -21,3 +21,6 @@ Makefile.*
 CMakeLists.txt.user
 .idea/
 .vscode/
+connection.ini
+connection.local.ini
+connection_error.log
