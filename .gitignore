@@ -24,3 +24,5 @@ CMakeLists.txt.user
 connection.ini
 connection.local.ini
 connection_error.log
+app_auth.local.ini
+app_auth.ini

@@ -1,4 +1,4 @@
-QT       += core gui sql charts printsupport
+QT       += core gui sql charts printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,13 +16,17 @@ SOURCES += \
     src/gcentreformation.cpp \
     src/connection.cpp \
     src/formateur.cpp \
-    src/cours.cpp
+    src/cours.cpp \
+    src/authentification.cpp \
+    src/login.cpp
 
 HEADERS += \
     src/gcentreformation.h \
     src/connection.h \
     src/formateur.h \
-    src/cours.h
+    src/cours.h \
+    src/authentification.h \
+    src/login.h
 
 FORMS += \
     ui/gcentreformation.ui

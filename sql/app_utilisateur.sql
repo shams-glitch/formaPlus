@@ -1,0 +1,12 @@
+-- Compte applicatif FormaPlus (fonctionnalité additionnelle, hors sujet septembre 2026).
+-- Ne DROP aucune table existante. Ne contient aucun mot de passe.
+-- L'application crée aussi cette table au démarrage si elle est absente.
+
+-- CREATE TABLE APP_UTILISATEUR (
+--   ID_UTILISATEUR NUMBER CONSTRAINT PK_APP_UTILISATEUR PRIMARY KEY,
+--   LOGIN VARCHAR2(50) CONSTRAINT UQ_APP_UTILISATEUR_LOGIN UNIQUE NOT NULL,
+--   SEL VARCHAR2(64) NOT NULL,
+--   MOT_DE_PASSE_HASH VARCHAR2(128) NOT NULL,
+--   ACTIF NUMBER(1) DEFAULT 1 NOT NULL,
+--   CONSTRAINT CK_APP_UTILISATEUR_ACTIF CHECK (ACTIF IN (0,1))
+-- );

@@ -43,6 +43,18 @@ Modules : **Formateurs** et **Cours**. SGBD : **Oracle**. Patron : **singleton**
 
 Aucune requête SQL n’est écrite derrière un bouton.
 
+## Authentification (fonctionnalité additionnelle)
+
+L’application affiche un écran de connexion **avant** la fenêtre principale.
+Un login réussi ouvre GCentreFormation. Un échec reste sur l’écran de connexion.
+
+Ce n’est **pas** une exigence du sujet de septembre 2026.
+
+- Le login applicatif est distinct de la connexion Oracle (DSN / `connection.ini`).
+- Les mots de passe applicatifs ne sont pas stockés en clair : hachage PBKDF2 (SHA-256) dans `APP_UTILISATEUR`.
+- Aucun identifiant n’est écrit dans le code source.
+- Premier compte : copier `app_auth.local.ini.example` vers `app_auth.local.ini` à côté de l’exe (fichier **gitignored**), renseigner identifiant et mot de passe, puis lancer une fois.
+
 ## Fonctionnalités
 
 **Formateurs** — CRUD, recherche/tri (nom, spécialité, statut), stats live, fiche/liste PDF, charge pédagogique, conflits de planning.

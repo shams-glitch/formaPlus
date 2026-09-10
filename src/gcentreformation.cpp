@@ -187,6 +187,7 @@ void GCentreFormation::appliquerStyle()
         "border-radius: 6px; color: #E8EEF4; background: transparent; font-size: 14px; }"
         "#sidebar QPushButton:hover { background: #1A3A5C; }"
         "#sidebar QPushButton:checked { background: #1ABC9C; color: #0F2744; font-weight: 600; }"
+        "#btnDeconnexion { color: #A8C0D4; }"
         "#lblTitreAccueil, #lblTitreFormateurs, #lblTitreCours { font-size: 22px; font-weight: 700; color: #0F2744; }"
         "#lblIntroAccueil { color: #5D6D7E; }"
         "QFrame#kpiFormateurs, QFrame#kpiCours, QFrame#kpiPlanifies, QFrame#kpiHeures {"
@@ -470,6 +471,11 @@ void GCentreFormation::on_btnNavFormateurs_clicked()
 void GCentreFormation::on_btnNavCours_clicked()
 {
     ui->stackedPages->setCurrentIndex(2);
+}
+
+void GCentreFormation::on_btnDeconnexion_clicked()
+{
+    emit deconnexionDemandee();
 }
 
 void GCentreFormation::on_btnFormAjouter_clicked()

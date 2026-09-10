@@ -137,6 +137,16 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="btnDeconnexion">
+         <property name="text">
+          <string>Déconnexion</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="lblModules">
          <property name="text">
           <string>2 modules · Oracle · Qt</string>

@@ -23,10 +23,14 @@ public:
     explicit GCentreFormation(QWidget *parent = nullptr);
     ~GCentreFormation();
 
+signals:
+    void deconnexionDemandee();
+
 private slots:
     void on_btnNavAccueil_clicked();
     void on_btnNavFormateurs_clicked();
     void on_btnNavCours_clicked();
+    void on_btnDeconnexion_clicked();
 
     void on_btnFormAjouter_clicked();
     void on_btnFormModifier_clicked();
