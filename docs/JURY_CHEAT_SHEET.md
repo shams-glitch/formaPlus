@@ -124,6 +124,11 @@ repassage de septembre 2026. Nous nous sommes donc concentrés sur les fonctionn
 - Formateurs : **charge pédagogique**, **conflits de planning**.
 - Cours : **affectation** (`affecterFormateur`), **alertes** (7 jours, formateur inactif, chevauchement).
 
+## Authentification (hors sujet)
+
+Login applicatif **Admin** (accès complet) / **Formateur** (lecture seule).  
+Ce n’est **pas** une exigence de septembre 2026. Ne pas le présenter comme tel.
+
 ## Démo Git
 
 ```text

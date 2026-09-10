@@ -18,7 +18,8 @@ SOURCES += \
     src/formateur.cpp \
     src/cours.cpp \
     src/authentification.cpp \
-    src/login.cpp
+    src/login.cpp \
+    src/session.cpp
 
 HEADERS += \
     src/gcentreformation.h \
@@ -26,7 +27,8 @@ HEADERS += \
     src/formateur.h \
     src/cours.h \
     src/authentification.h \
-    src/login.h
+    src/login.h \
+    src/session.h
 
 FORMS += \
     ui/gcentreformation.ui

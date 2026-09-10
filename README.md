@@ -27,7 +27,7 @@ Modules : **Formateurs** et **Cours**. SGBD : **Oracle**. Patron : **singleton**
 
 | Dossier / fichier | Contenu |
 |-------------------|---------|
-| `src/` | C++ : `main`, `connection` (singleton), `formateur`, `cours`, `gcentreformation` |
+| `src/` | C++ : `main`, `connection` (singleton), `formateur`, `cours`, `gcentreformation`, `session`, authentification |
 | `ui/` | `gcentreformation.ui` (1 seul fichier UI) |
 | `sql/` | `mpd_oracle.sql` |
 | `docs/` | Conception, grille, guide, cahier Word, présentation jury |
@@ -46,14 +46,22 @@ Aucune requête SQL n’est écrite derrière un bouton.
 ## Authentification (fonctionnalité additionnelle)
 
 L’application affiche un écran de connexion **avant** la fenêtre principale.
-Un login réussi ouvre GCentreFormation. Un échec reste sur l’écran de connexion.
+Un login réussi ouvre GCentreFormation selon le **rôle**. Un échec affiche
+« Nom d'utilisateur ou mot de passe incorrect. » et reste sur l’écran de connexion.
 
 Ce n’est **pas** une exigence du sujet de septembre 2026.
 
+Rôles :
+
+- **Admin** — accès complet (ajout, lecture, modification, suppression, métiers).
+- **Formateur** — consultation uniquement (lecture, recherche, tri, statistiques, graphiques, PDF). Les écritures sont refusées dans l’interface **et** dans les classes métier (`Formateur` / `Cours`) avant toute requête SQL.
+
+Après connexion, la fenêtre principale affiche discrètement « Connecté : Admin » ou « Connecté : Formateur ». **Déconnexion** revient à l’écran de login sans fermer Oracle.
+
 - Le login applicatif est distinct de la connexion Oracle (DSN / `connection.ini`).
-- Les mots de passe applicatifs ne sont pas stockés en clair : hachage PBKDF2 (SHA-256) dans `APP_UTILISATEUR`.
+- Les mots de passe applicatifs ne sont pas stockés en clair : hachage PBKDF2 (SHA-256) dans `APP_UTILISATEUR` (colonne `ROLE` : `ADMIN` ou `FORMATEUR`).
 - Aucun identifiant n’est écrit dans le code source.
-- Premier compte : copier `app_auth.local.ini.example` vers `app_auth.local.ini` à côté de l’exe (fichier **gitignored**), renseigner un identifiant métier (ex. **formateur**, pas admin) et un mot de passe, puis lancer une fois.
+- Comptes locaux : copier `app_auth.local.ini.example` vers `app_auth.local.ini` à côté de l’exe (fichier **gitignored**), renseigner les sections `[admin]` et `[formateur]`, puis lancer. Les comptes déjà présents ne sont pas réécrits.
 
 ## Fonctionnalités
 

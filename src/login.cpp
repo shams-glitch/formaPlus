@@ -29,12 +29,12 @@ LoginDialog::LoginDialog(QWidget* parent)
 
     auto* marque = new QLabel(QString::fromUtf8("FormaPlus"), this);
     marque->setObjectName(QStringLiteral("lblMarque"));
-    auto* sous = new QLabel(QString::fromUtf8("GCentreFormation — authentification applicative"), this);
+    auto* sous = new QLabel(QString::fromUtf8("GCentreFormation — connexion applicative"), this);
     sous->setObjectName(QStringLiteral("lblSous"));
     sous->setWordWrap(true);
 
     leLogin = new QLineEdit(this);
-    leLogin->setPlaceholderText(QString::fromUtf8("Identifiant (ex. formateur)"));
+    leLogin->setPlaceholderText(QString::fromUtf8("Identifiant"));
     leMotDePasse = new QLineEdit(this);
     leMotDePasse->setPlaceholderText(QString::fromUtf8("Mot de passe"));
     leMotDePasse->setEchoMode(QLineEdit::Password);

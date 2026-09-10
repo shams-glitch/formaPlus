@@ -2,6 +2,7 @@
 #include "connection.h"
 #include "authentification.h"
 #include "login.h"
+#include "session.h"
 
 #include <QApplication>
 #include <QMessageBox>
@@ -40,10 +41,12 @@ int main(int argc, char *argv[])
     GCentreFormation w;
     QObject::connect(&w, &GCentreFormation::deconnexionDemandee, [&]() {
         w.hide();
+        Session::instance().vider();
         login.reinitialiser();
         if (login.exec() != QDialog::Accepted) {
             a.quit();
         } else {
+            w.appliquerProfil();
             w.show();
         }
     });
@@ -51,6 +54,7 @@ int main(int argc, char *argv[])
     if (login.exec() != QDialog::Accepted) {
         return 0;
     }
+    w.appliquerProfil();
     w.show();
     return a.exec();
 }

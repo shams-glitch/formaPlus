@@ -1,4 +1,5 @@
 #include "formateur.h"
+#include "session.h"
 
 #include <utility>
 #include <QSqlError>
@@ -103,6 +104,9 @@ QSqlQueryModel* Formateur::executerSelect(QSqlQuery& query)
 
 bool Formateur::ajouter()
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     QString message;
     if (!valider(message)) {
         lastError = message;
@@ -132,6 +136,9 @@ bool Formateur::ajouter()
 
 bool Formateur::modifier()
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     QString message;
     if (id <= 0) {
         lastError = QString::fromUtf8("Sélectionnez un formateur à modifier.");
@@ -172,6 +179,9 @@ bool Formateur::modifier()
 
 bool Formateur::supprimer(int idFormateur)
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     if (idFormateur <= 0) {
         lastError = QString::fromUtf8("Sélectionnez un formateur à supprimer.");
         return false;

@@ -1,5 +1,6 @@
 #include "gcentreformation.h"
 #include "ui_gcentreformation.h"
+#include "session.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -182,7 +183,7 @@ void GCentreFormation::appliquerStyle()
         "QMainWindow { background: #F4F6F8; }"
         "#sidebar { background: #0F2744; }"
         "#lblLogo { color: #FFFFFF; font-size: 22px; font-weight: 700; font-family: 'Segoe UI'; }"
-        "#lblSousTitre, #lblModules { color: #A8C0D4; font-size: 12px; }"
+        "#lblSousTitre, #lblModules, #lblConnecte { color: #A8C0D4; font-size: 12px; }"
         "#sidebar QPushButton { text-align: left; padding: 10px 14px; border: none; "
         "border-radius: 6px; color: #E8EEF4; background: transparent; font-size: 14px; }"
         "#sidebar QPushButton:hover { background: #1A3A5C; }"
@@ -200,7 +201,9 @@ void GCentreFormation::appliquerStyle()
         "selection-color: #0F2744; }"
         "QPushButton { padding: 7px 12px; border-radius: 4px; background: #0F2744; color: white; border: none; }"
         "QPushButton:hover { background: #1A3A5C; }"
+        "QPushButton:disabled { background: #B0B8C0; color: #F4F6F8; }"
         "#btnFormSupprimer, #btnCoursSupprimer { background: #C0392B; }"
+        "#btnFormSupprimer:disabled, #btnCoursSupprimer:disabled { background: #B0B8C0; color: #F4F6F8; }"
         "#btnFormPdf, #btnFormPdfListe, #btnCoursPdf, #btnCoursCatalogue { background: #1ABC9C; color: #0F2744; }"
         "QLineEdit, QComboBox, QDateEdit, QSpinBox, QDoubleSpinBox { padding: 4px 6px; min-height: 24px; }"
         "QStatusBar { background: #FFFFFF; color: #5D6D7E; }"
@@ -408,6 +411,49 @@ void GCentreFormation::informer(bool ok, const QString& succes, const QString& e
     }
 }
 
+bool GCentreFormation::exigerAdminGui()
+{
+    if (Session::instance().estAdmin()) {
+        return true;
+    }
+    QMessageBox::warning(this, QString::fromUtf8("FormaPlus"),
+                         QString::fromUtf8("Action réservée à l'administrateur."));
+    return false;
+}
+
+void GCentreFormation::appliquerProfil()
+{
+    const Session& s = Session::instance();
+    ui->lblConnecte->setText(QString::fromUtf8("Connecté : %1").arg(s.libelleRole()));
+    const bool admin = s.estAdmin();
+    const QString hint = admin
+            ? QString()
+            : QString::fromUtf8("Mode consultation — réservé à l'administrateur");
+
+    ui->btnFormAjouter->setEnabled(admin);
+    ui->btnFormModifier->setEnabled(admin);
+    ui->btnFormSupprimer->setEnabled(admin);
+    ui->btnCoursAjouter->setEnabled(admin);
+    ui->btnCoursModifier->setEnabled(admin);
+    ui->btnCoursSupprimer->setEnabled(admin);
+    ui->btnCoursAffecter->setEnabled(admin);
+
+    ui->btnFormAjouter->setToolTip(hint);
+    ui->btnFormModifier->setToolTip(hint);
+    ui->btnFormSupprimer->setToolTip(hint);
+    ui->btnCoursAjouter->setToolTip(hint);
+    ui->btnCoursModifier->setToolTip(hint);
+    ui->btnCoursSupprimer->setToolTip(hint);
+    ui->btnCoursAffecter->setToolTip(hint);
+
+    if (admin) {
+        statusBar()->showMessage(QString::fromUtf8("Profil administrateur — accès complet."), 4000);
+    } else {
+        statusBar()->showMessage(
+            QString::fromUtf8("Mode consultation — ajout, modification et suppression désactivés."), 0);
+    }
+}
+
 QString GCentreFormation::choisirFichierPdf(const QString& nomDefaut)
 {
     return QFileDialog::getSaveFileName(
@@ -480,6 +526,9 @@ void GCentreFormation::on_btnDeconnexion_clicked()
 
 void GCentreFormation::on_btnFormAjouter_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     Formateur f = formateurDepuisFormulaire();
     const bool ok = f.ajouter();
     informer(ok,
@@ -493,6 +542,9 @@ void GCentreFormation::on_btnFormAjouter_clicked()
 
 void GCentreFormation::on_btnFormModifier_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     Formateur f = formateurDepuisFormulaire();
     const bool ok = f.modifier();
     informer(ok,
@@ -505,6 +557,9 @@ void GCentreFormation::on_btnFormModifier_clicked()
 
 void GCentreFormation::on_btnFormSupprimer_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     const int id = ui->leFormId->text().toInt();
     if (id <= 0) {
         QMessageBox::warning(this, QString::fromUtf8("FormaPlus"),
@@ -617,6 +672,9 @@ void GCentreFormation::on_btnFormRefreshMetiers_clicked()
 
 void GCentreFormation::on_btnCoursAjouter_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     Cours c = coursDepuisFormulaire();
     const bool ok = c.ajouter();
     informer(ok,
@@ -630,6 +688,9 @@ void GCentreFormation::on_btnCoursAjouter_clicked()
 
 void GCentreFormation::on_btnCoursModifier_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     Cours c = coursDepuisFormulaire();
     const bool ok = c.modifier();
     informer(ok,
@@ -642,6 +703,9 @@ void GCentreFormation::on_btnCoursModifier_clicked()
 
 void GCentreFormation::on_btnCoursSupprimer_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     const int id = ui->leCoursId->text().toInt();
     if (id <= 0) {
         QMessageBox::warning(this, QString::fromUtf8("FormaPlus"),
@@ -749,6 +813,9 @@ void GCentreFormation::on_btnCoursTrier_clicked()
 
 void GCentreFormation::on_btnCoursAffecter_clicked()
 {
+    if (!exigerAdminGui()) {
+        return;
+    }
     const int idCours = ui->cbAffCours->currentData().toInt();
     const int idForm = ui->cbAffFormateur->currentData().toInt();
     const bool ok = tmpCours.affecterFormateur(idCours, idForm);

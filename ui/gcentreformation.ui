@@ -137,6 +137,16 @@
         </spacer>
        </item>
        <item>
+        <widget class="QLabel" name="lblConnecte">
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Connecté : —</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btnDeconnexion">
          <property name="text">
           <string>Déconnexion</string>

@@ -1,4 +1,5 @@
 #include "cours.h"
+#include "session.h"
 
 #include <utility>
 #include <QSqlError>
@@ -110,6 +111,9 @@ QSqlQueryModel* Cours::executerSelect(QSqlQuery& query)
 
 bool Cours::ajouter()
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     QString message;
     if (!valider(message)) {
         lastError = message;
@@ -140,6 +144,9 @@ bool Cours::ajouter()
 
 bool Cours::modifier()
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     QString message;
     if (id <= 0) {
         lastError = QString::fromUtf8("Sélectionnez un cours à modifier.");
@@ -180,6 +187,9 @@ bool Cours::modifier()
 
 bool Cours::supprimer(int idCours)
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     if (idCours <= 0) {
         lastError = QString::fromUtf8("Sélectionnez un cours à supprimer.");
         return false;
@@ -201,6 +211,9 @@ bool Cours::supprimer(int idCours)
 
 bool Cours::affecterFormateur(int idCours, int idFormateurCible)
 {
+    if (!Session::exigerAdmin(&lastError)) {
+        return false;
+    }
     if (idCours <= 0 || idFormateurCible <= 0) {
         lastError = QString::fromUtf8("Choisissez un cours et un formateur.");
         return false;

@@ -22,6 +22,7 @@ class GCentreFormation : public QMainWindow
 public:
     explicit GCentreFormation(QWidget *parent = nullptr);
     ~GCentreFormation();
+    void appliquerProfil();
 
 signals:
     void deconnexionDemandee();
@@ -82,6 +83,7 @@ private:
     void rafraichirAccueil();
     QString choisirFichierPdf(const QString& nomDefaut);
     void informer(bool ok, const QString& succes, const QString& erreur);
+    bool exigerAdminGui();
 };
 
 #endif // GCENTREFORMATION_H

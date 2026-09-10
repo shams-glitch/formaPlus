@@ -1,6 +1,8 @@
 #ifndef AUTHENTIFICATION_H
 #define AUTHENTIFICATION_H
 
+#include "session.h"
+
 #include <QString>
 
 class Authentification
@@ -14,8 +16,10 @@ private:
     QString lastError_;
 
     bool assurerTable();
-    bool compterUtilisateurs(int& nb);
-    bool bootstrapLocalSiVide();
+    bool assurerColonneRole();
+    bool bootstrapComptesLocaux();
+    bool compteExiste(const QString& login, bool& existe);
+    bool insererCompte(const QString& login, const QString& motDePasse, Session::Role role);
     QByteArray hacher(const QByteArray& motDePasse, const QByteArray& sel) const;
 };
 
