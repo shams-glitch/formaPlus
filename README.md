@@ -53,7 +53,7 @@ Ce n’est **pas** une exigence du sujet de septembre 2026.
 - Le login applicatif est distinct de la connexion Oracle (DSN / `connection.ini`).
 - Les mots de passe applicatifs ne sont pas stockés en clair : hachage PBKDF2 (SHA-256) dans `APP_UTILISATEUR`.
 - Aucun identifiant n’est écrit dans le code source.
-- Premier compte : copier `app_auth.local.ini.example` vers `app_auth.local.ini` à côté de l’exe (fichier **gitignored**), renseigner identifiant et mot de passe, puis lancer une fois.
+- Premier compte : copier `app_auth.local.ini.example` vers `app_auth.local.ini` à côté de l’exe (fichier **gitignored**), renseigner un identifiant métier (ex. **formateur**, pas admin) et un mot de passe, puis lancer une fois.
 
 ## Fonctionnalités
 

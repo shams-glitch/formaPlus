@@ -1,6 +1,7 @@
 # Compte applicatif LOCAL — TEST ONLY
 # Copier ce fichier vers app_auth.local.ini à côté de l'exe.
 # Ne jamais le committer. Ce n'est PAS le mot de passe Oracle.
+# Exemple d'identifiant métier : formateur  (pas admin)
 
 [auth]
 username=

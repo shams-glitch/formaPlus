@@ -34,7 +34,7 @@ LoginDialog::LoginDialog(QWidget* parent)
     sous->setWordWrap(true);
 
     leLogin = new QLineEdit(this);
-    leLogin->setPlaceholderText(QString::fromUtf8("Identifiant"));
+    leLogin->setPlaceholderText(QString::fromUtf8("Identifiant (ex. formateur)"));
     leMotDePasse = new QLineEdit(this);
     leMotDePasse->setPlaceholderText(QString::fromUtf8("Mot de passe"));
     leMotDePasse->setEchoMode(QLineEdit::Password);
